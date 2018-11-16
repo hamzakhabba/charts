@@ -1,16 +1,20 @@
 $(document).ready(function () {
-
-
                 $(window).load(
                         $.ajax({
                             url: "Graphe_employe_par_profil",
                             type: 'GET',
+                            cache: false,
                             dataType: 'json',
                             data: {},
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                  console.load("erreur");
+                            },
                             success: function (data) {
 
                                 var a = [];
                                 var b = [];
+                                console.log(data);
+                                
                                 for (var i = 0; i < data.length; i++) {
 
                                     a[i] = data[i][0];

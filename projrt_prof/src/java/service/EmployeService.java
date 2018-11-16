@@ -130,7 +130,7 @@ public class EmployeService implements IDao<Employe> {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            Employes = session.createQuery("from Employe where profil_id=" + id).list();
+            Employes = session.createQuery("from Employe e where e.profil.id= ?").setParameter(0, id).list();
             tx.commit();
             session.close();
             return Employes;
@@ -184,9 +184,9 @@ public class EmployeService implements IDao<Employe> {
         }
     }
 
-    public List<Employe> graphe1() {
+    public List<Object> graphe1() {
 
-        List<Employe> Profils = null;
+        List<Object> Profils = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction tx = null;
         try {

@@ -22,8 +22,9 @@ import util.HibernateUtil;
 public class Test {
 
     public static void main(String[] args) {
-        
-       
+        HibernateUtil.getSessionFactory().openSession();
+       EmployeService es = new EmployeService();
+       System.out.println(es.graphe1());
         
        
     }

@@ -6,12 +6,14 @@ $(document).ready(function () {
                 $.ajax({
                     url: "LoadEmploye",
                     type: 'GET',
+                    cache: false,
                     data: {id: id},
                     success: function (data) {
 
                         $("#nom").val(data[0][3]);
                         $("#prenom").val(data[0][5]);
                         var now = new Date(data[0][1]);
+                        console.log(data[0][1]);
                         var day = ("0" + now.getDate()).slice(-2);
                         var month = ("0" + (now.getMonth() + 1)).slice(-2);
                         var today = now.getFullYear() + "-" + (month) + "-" + (day);

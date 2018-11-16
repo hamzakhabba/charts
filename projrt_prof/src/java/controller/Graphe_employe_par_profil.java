@@ -16,12 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.EmployeService;
 
-
 /**
  *
  * @author macbookpro
  */
-@WebServlet(name = "Graphe_employe_par_profil",urlPatterns = "/Graphe_employe_par_profil")
+@WebServlet(name = "Graphe_employe_par_profil", urlPatterns = "/Graphe_employe_par_profil")
 public class Graphe_employe_par_profil extends HttpServlet {
 
     /**
@@ -33,19 +32,17 @@ public class Graphe_employe_par_profil extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           
-            
-            EmployeService em=new EmployeService();
+
+            EmployeService em = new EmployeService();
             response.setContentType("application/json");
-           Gson g = new Gson();
-           g.toJson(em.graphe1(), response.getWriter());
-            
+            Gson g = new Gson();
+            g.toJson(em.graphe1(), response.getWriter());
+
         }
     }
 
